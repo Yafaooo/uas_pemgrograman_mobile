@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><strong> DATA PENDAFTAR LOMBA </strong></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card *ngFor="let peserta of pesertas">
+    <ion-card-header>
+      <ion-card-subtitle
+        >JENIS KELAMIN: {{peserta.jenis_kelamin}}, JENIS LOMBA:
+        {{peserta.jenislomba}}, KOTA: {{peserta.kota}}, JENJANG: {{peserta.jenjang}},  
+        ASAL: {{peserta.asal}}</ion-card-subtitle
+      >
+      <ion-card-title>{{peserta.nama}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      NOMOR HP: {{peserta.nohp}},  ASAL: {{peserta.asal}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-infinite-scroll (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

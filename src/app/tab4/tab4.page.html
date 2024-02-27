@@ -1,0 +1,22 @@
+<!-- tab4.page.html -->
+
+<ion-header>
+  <ion-toolbar>
+    <h3><strong>KEJUARAAN NASIONAL </strong></h3>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let kejurnasAnnouncement of kejurnasAnnouncements">
+      <ion-thumbnail slot="start">
+        <img class="enlarged-image" src="{{ kejurnasAnnouncement.image }}" alt="Gambar Pengumuman">
+      </ion-thumbnail>
+      <ion-label class="announcement-label">
+        <h2 class="announcement-title blink-text">{{ kejurnasAnnouncement.title }}</h2>
+        <p class="announcement-content">{{ kejurnasAnnouncement.content }}</p>
+        <p class="announcement-date">Tanggal: {{ kejurnasAnnouncement.date | date: 'medium' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
